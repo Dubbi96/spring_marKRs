@@ -1,9 +1,7 @@
 package pe.marker.asan.auth.application.service;
 
-import io.swagger.annotations.Scope;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -12,53 +10,63 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
-import pe.marker.asan.auth.application.dto.OAuthAttributes;
-import pe.marker.asan.auth.application.dto.SessionUser;
+import pe.marker.asan.auth.application.dto.MemberProfile;
+import pe.marker.asan.auth.application.dto.OAuthCustomAttributes;
 import pe.marker.asan.auth.domain.entity.MarkrsUser;
 import pe.marker.asan.auth.domain.repository.MarkrsUserRepository;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class MarkrsOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
     private final MarkrsUserRepository markrsUserRepository;
-    private final HttpSession httpSession;
-
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-        OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService();
-        OAuth2User oAuth2User = delegate.loadUser(userRequest);
+        OAuth2UserService delegate = new DefaultOAuth2UserService();
+        OAuth2User oAuth2User = delegate.loadUser(userRequest); // OAuth 서비스(kakao, google, naver)에서 가져온 유저 정보를 담고있음
 
-        log.info("oauth user : " + oAuth2User.getName());
-
-        String registrationId = userRequest.getClientRegistration().getRegistrationId();
+        String registrationId = userRequest.getClientRegistration()
+                .getRegistrationId(); // OAuth 서비스 이름(ex. kakao, naver, google)
         String userNameAttributeName = userRequest.getClientRegistration()
-                .getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
+                .getProviderDetails()
+                .getUserInfoEndpoint()
+                .getUserNameAttributeName(); // OAuth 로그인 시 키(pk)가 되는 값
+        Map<String, Object> attributes = oAuth2User.getAttributes(); // OAuth 서비스의 유저 정보들
 
-        OAuthAttributes attributes =
-                OAuthAttributes.of(registrationId,userNameAttributeName,oAuth2User.getAttributes());
+        MemberProfile memberProfile = OAuthCustomAttributes.extract(registrationId, attributes); // registrationId에 따라 유저 정보를 통해 공통된 UserProfile 객체로 만들어 줌
+        memberProfile.setProvider(registrationId);
+        log.info(registrationId);
 
-        MarkrsUser user = saveOrUpdate(attributes);
+        MarkrsUser member = saveOrUpdate(memberProfile);
 
-        if (httpSession != null) {
-            httpSession.setAttribute("user",new SessionUser(user));
-        }
+        Map<String, Object> customAttribute = customAttribute(attributes, userNameAttributeName, memberProfile, registrationId);
 
         return new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
-                        attributes.getAttributes(),
-                        attributes.getNameAttributeKey());
+                Collections.singleton(new SimpleGrantedAuthority("USER")),
+                customAttribute,
+                userNameAttributeName);
     }
 
-    private MarkrsUser saveOrUpdate(OAuthAttributes attributes){
-        MarkrsUser markrsUser = markrsUserRepository.findByEmail(attributes.getEmail())
-                //이미 존재할 경우 username,picture update 실시
-                .map(entity -> entity.update(attributes.getName(),attributes.getPicture()))
-                //없을 경우 신규 아이디 등록
-                .orElse(attributes.toEntity());
-        return markrsUserRepository.save(markrsUser);
+    private MarkrsUser saveOrUpdate(MemberProfile memberProfile){
+        MarkrsUser member = markrsUserRepository.findByEmailAndProvider(memberProfile.getEmail(), memberProfile.getProvider())
+                .map(m -> m.update(memberProfile.getName(), memberProfile.getEmail(), memberProfile.getPicture()))
+                // OAuth 서비스 사이트에서 유저 정보 변경이 있을 수 있기 때문에 우리 DB에도 update
+                .orElse(memberProfile.toMember());
+
+        return markrsUserRepository.save(member);
+    }
+
+    private Map customAttribute(Map attributes, String userNameAttributeName, MemberProfile memberProfile, String registrationId) {
+        Map<String, Object> customAttribute = new LinkedHashMap<>();
+        customAttribute.put(userNameAttributeName, attributes.get(userNameAttributeName));
+        customAttribute.put("provider", registrationId);
+        customAttribute.put("name", memberProfile.getName());
+        customAttribute.put("email", memberProfile.getEmail());
+        return customAttribute;
     }
 }

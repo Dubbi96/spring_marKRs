@@ -1,3 +1,4 @@
+/*
 package pe.marker.asan.auth.application.dto;
 
 import lombok.AllArgsConstructor;
@@ -58,3 +59,4 @@ public class OAuthAttributes {
                 .build();
     }
 }
+*/

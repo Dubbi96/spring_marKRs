@@ -1,3 +1,4 @@
+/*
 package pe.marker.asan.auth.application.dto;
 
 import lombok.AllArgsConstructor;
@@ -17,3 +18,4 @@ public class SessionUser {
         this.picture = markrsUser.getPicture();
     }
 }
+*/

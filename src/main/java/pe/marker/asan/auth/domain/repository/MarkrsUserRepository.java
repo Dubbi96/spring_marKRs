@@ -6,5 +6,5 @@ import pe.marker.asan.auth.domain.entity.MarkrsUser;
 import java.util.Optional;
 
 public interface MarkrsUserRepository extends JpaRepository<MarkrsUser, Long> {
-    Optional<MarkrsUser> findByEmail(String email);
+    Optional<MarkrsUser> findByEmailAndProvider(String email, String provider);
 }

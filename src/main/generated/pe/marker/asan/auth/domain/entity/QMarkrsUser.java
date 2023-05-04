@@ -35,7 +35,11 @@ public class QMarkrsUser extends EntityPathBase<MarkrsUser> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifyTs = _super.modifyTs;
 
+    public final StringPath nickname = createString("nickname");
+
     public final StringPath picture = createString("picture");
+
+    public final StringPath provider = createString("provider");
 
     public final EnumPath<Role> role = createEnum("role", Role.class);
 
