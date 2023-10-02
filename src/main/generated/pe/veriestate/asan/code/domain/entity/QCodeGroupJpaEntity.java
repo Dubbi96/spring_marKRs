@@ -1,4 +1,4 @@
-package pe.marker.asan.code.domain.entity;
+package pe.veriestate.asan.code.domain.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QCodeGroupJpaEntity extends EntityPathBase<CodeGroupJpaEntity> {
 
-    private static final long serialVersionUID = -1449170406L;
+    private static final long serialVersionUID = 1529375714L;
 
     public static final QCodeGroupJpaEntity codeGroupJpaEntity = new QCodeGroupJpaEntity("codeGroupJpaEntity");
 

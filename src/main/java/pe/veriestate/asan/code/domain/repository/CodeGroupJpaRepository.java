@@ -1,7 +1,7 @@
-package pe.marker.asan.code.domain.repository;
+package pe.veriestate.asan.code.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pe.marker.asan.code.domain.entity.CodeGroupJpaEntity;
+import pe.veriestate.asan.code.domain.entity.CodeGroupJpaEntity;
 
 public interface CodeGroupJpaRepository extends JpaRepository<CodeGroupJpaEntity, Long> {
 }

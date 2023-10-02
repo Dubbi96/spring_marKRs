@@ -1,4 +1,4 @@
-package pe.marker.asan.common.domain.entity;
+package pe.veriestate.asan.common.domain.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultEmbeddableSerializer")
 public class QHisId extends BeanPath<HisId> {
 
-    private static final long serialVersionUID = 1195807389L;
+    private static final long serialVersionUID = -1874010667L;
 
     public static final QHisId hisId = new QHisId("hisId");
 

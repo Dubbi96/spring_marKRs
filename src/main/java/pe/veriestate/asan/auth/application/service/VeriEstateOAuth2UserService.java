@@ -22,7 +22,7 @@ import java.util.Map;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class MarkrsOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
+public class VeriEstateOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
     private final VeriEstateUserRepository veriEstateUserRepository;
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {

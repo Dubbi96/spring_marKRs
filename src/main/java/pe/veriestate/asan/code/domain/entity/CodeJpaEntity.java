@@ -1,4 +1,4 @@
-package pe.marker.asan.code.domain.entity;
+package pe.veriestate.asan.code.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

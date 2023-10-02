@@ -1,4 +1,4 @@
-package pe.marker.asan.common.status;
+package pe.veriestate.asan.common.status;
 
 public enum HttpStatusEnum {
     OK(200, "OK"),

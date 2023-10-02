@@ -1,4 +1,4 @@
-package pe.marker.asan.auth.domain.entity;
+package pe.veriestate.asan.auth.domain.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

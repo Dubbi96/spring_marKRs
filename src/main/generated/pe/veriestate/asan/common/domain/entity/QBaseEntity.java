@@ -1,4 +1,4 @@
-package pe.marker.asan.common.domain.entity;
+package pe.veriestate.asan.common.domain.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultSupertypeSerializer")
 public class QBaseEntity extends EntityPathBase<BaseEntity> {
 
-    private static final long serialVersionUID = -1029827132L;
+    private static final long serialVersionUID = -2007102068L;
 
     public static final QBaseEntity baseEntity = new QBaseEntity("baseEntity");
 

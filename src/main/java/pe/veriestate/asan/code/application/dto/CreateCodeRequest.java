@@ -1,4 +1,4 @@
-package pe.marker.asan.code.application.dto;
+package pe.veriestate.asan.code.application.dto;
 
 import java.util.List;
 

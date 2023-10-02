@@ -1,12 +1,15 @@
 server:
-  port: 8080
+  port: 9001
   servlet:
     context-path : /
 spring:
   mvc :
-    view :
-      prefix : /WEB-INF/view/
-      suffix : .jsp
+    thymeleaf:
+      checkTemplateLocation: true
+      suffix: .html
+      mode: HTML5
+      cache: false
+
   main :
     allow-bean-definition-overriding: true
 
@@ -19,7 +22,7 @@ spring:
   datasource:
     #Postgresql -> H2로 변경 rollback
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/guide
+    url: jdbc:postgresql://localhost:5432/VeriEstate
     #driver-class-name: org.h2.Driver
     #url: jdbc:h2:tcp://localhost/~/test
     username: dubbi

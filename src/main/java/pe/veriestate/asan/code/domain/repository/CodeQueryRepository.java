@@ -1,12 +1,12 @@
-package pe.marker.asan.code.domain.repository;
+package pe.veriestate.asan.code.domain.repository;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import pe.marker.asan.code.domain.entity.CodeGroupJpaEntity;
-import pe.marker.asan.code.domain.entity.CodeJpaEntity;
+import pe.veriestate.asan.code.domain.entity.CodeGroupJpaEntity;
+import pe.veriestate.asan.code.domain.entity.CodeJpaEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import pe.marker.asan.code.domain.entity.QCodeJpaEntity;
+import pe.veriestate.asan.code.domain.entity.QCodeJpaEntity;
 
 import java.time.LocalDateTime;
 import java.util.List;

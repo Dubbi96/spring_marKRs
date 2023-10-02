@@ -1,4 +1,4 @@
-package pe.marker.asan;
+package pe.veriestate.asan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

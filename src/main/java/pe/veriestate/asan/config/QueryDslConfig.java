@@ -1,4 +1,4 @@
-package pe.marker.asan.config;
+package pe.veriestate.asan.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.context.annotation.Bean;

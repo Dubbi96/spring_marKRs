@@ -1,14 +1,9 @@
+/*
 package pe.veriestate.asan.config;
-
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import pe.veriestate.asan.auth.application.service.VeriEstateOAuth2UserService;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfigWebSecurityConfigAdapter extends WebSecurityConfigurerAdapter {
     private final VeriEstateOAuth2UserService veriEstateOAuth2UserService;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -33,3 +28,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .userService(veriEstateOAuth2UserService); //OAuth2 로그인 성공 시, 작업을 진행할 MemberService
     }
 }
+*/

@@ -1,8 +1,8 @@
-package pe.marker.asan.auth.application.dto;
+package pe.veriestate.asan.auth.application.dto;
 
 import lombok.Data;
-import pe.marker.asan.auth.domain.entity.Role;
-import pe.marker.asan.auth.domain.entity.VeriEstateUser;
+import pe.veriestate.asan.auth.domain.entity.Role;
+import pe.veriestate.asan.auth.domain.entity.VeriEstateUser;
 
 @Data
 public class MemberProfile {

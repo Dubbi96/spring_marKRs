@@ -1,4 +1,4 @@
-package pe.marker.asan.auth.web.controller;
+package pe.veriestate.asan.auth.web.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pe.marker.asan.common.status.HttpMessage;
-import pe.marker.asan.common.status.HttpStatusEnum;
+import pe.veriestate.asan.common.status.HttpMessage;
+import pe.veriestate.asan.common.status.HttpStatusEnum;
 
 import javax.servlet.http.HttpServlet;
 import java.nio.charset.StandardCharsets;
@@ -21,7 +21,7 @@ import java.util.Map;
 @RequestMapping
 @Slf4j
 public class IndexController extends HttpServlet {
-    @GetMapping("/")
+    @GetMapping("/auth-check")
     public ResponseEntity<?> oauthLoginInfo(Authentication authentication){
         HttpHeaders headers = new HttpHeaders();
         HttpMessage message = new HttpMessage();
@@ -42,15 +42,21 @@ public class IndexController extends HttpServlet {
             return new ResponseEntity<>(message,headers,HttpStatus.OK);
         }
     }
-    @GetMapping("/login")
+    @GetMapping("/signin")
     public String login() {
-        log.error("login");
-        return "oauth/oauth-login";
+        log.info("login");
+        return "oauth2login";
     }
 
-    @GetMapping("/main")
+    @GetMapping(value = {"/main","/"})
     public String landing(){
         log.info("landing page");
         return "Landing";
+    }
+
+    @GetMapping("/faq")
+    public String faq(){
+        log.info("faq");
+        return "FAQ";
     }
 }

@@ -1,12 +1,12 @@
-package pe.marker.asan.code.web.controller;
+package pe.veriestate.asan.code.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-import pe.marker.asan.code.application.dto.CreateCodeRequest;
-import pe.marker.asan.code.application.dto.ReadCodeResponse;
-import pe.marker.asan.code.application.dto.UpdateCodeRequest;
-import pe.marker.asan.code.application.service.CodeService;
+import pe.veriestate.asan.code.application.dto.CreateCodeRequest;
+import pe.veriestate.asan.code.application.dto.ReadCodeResponse;
+import pe.veriestate.asan.code.application.dto.UpdateCodeRequest;
+import pe.veriestate.asan.code.application.service.CodeService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package pe.marker.asan.common.status;
+package pe.veriestate.asan.common.status;
 
 import lombok.Data;
 

@@ -1,12 +1,11 @@
-package pe.marker.asan.auth.domain.entity;
+package pe.veriestate.asan.auth.domain.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.DynamicUpdate;
-import pe.marker.asan.common.domain.entity.BaseEntity;
+import pe.veriestate.asan.common.domain.entity.BaseEntity;
 
 import javax.persistence.*;
 
@@ -23,6 +22,7 @@ public class VeriEstateUser extends BaseEntity {
     @Column(name = "E_MAIL")
     private String email;
 
+    @Lob
     @Column(name = "PROFILE_PICTURE")
     private String picture;
 
@@ -31,6 +31,7 @@ public class VeriEstateUser extends BaseEntity {
 
     @Column(name = "nickname", unique = true)
     private String nickname;
+
     @Column(name = "ROLE")
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -45,6 +46,4 @@ public class VeriEstateUser extends BaseEntity {
     public String getRoleKey(){
         return this.role.getKey();
     }
-
-
 }

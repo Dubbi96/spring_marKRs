@@ -1,4 +1,4 @@
-package pe.marker.asan.auth.domain.entity;
+package pe.veriestate.asan.auth.domain.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,11 +15,11 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QVeriEstateUser extends EntityPathBase<VeriEstateUser> {
 
-    private static final long serialVersionUID = -331871472L;
+    private static final long serialVersionUID = 1104752856L;
 
     public static final QVeriEstateUser veriEstateUser = new QVeriEstateUser("veriEstateUser");
 
-    public final pe.marker.asan.common.domain.entity.QBaseEntity _super = new pe.marker.asan.common.domain.entity.QBaseEntity(this);
+    public final pe.veriestate.asan.common.domain.entity.QBaseEntity _super = new pe.veriestate.asan.common.domain.entity.QBaseEntity(this);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createTs = _super.createTs;
