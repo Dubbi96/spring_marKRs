@@ -10,14 +10,14 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QMarkrsUser is a Querydsl query type for MarkrsUser
+ * QVeriEstateUser is a Querydsl query type for VeriEstateUser
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QMarkrsUser extends EntityPathBase<MarkrsUser> {
+public class QVeriEstateUser extends EntityPathBase<VeriEstateUser> {
 
-    private static final long serialVersionUID = 1978074188L;
+    private static final long serialVersionUID = -331871472L;
 
-    public static final QMarkrsUser markrsUser = new QMarkrsUser("markrsUser");
+    public static final QVeriEstateUser veriEstateUser = new QVeriEstateUser("veriEstateUser");
 
     public final pe.marker.asan.common.domain.entity.QBaseEntity _super = new pe.marker.asan.common.domain.entity.QBaseEntity(this);
 
@@ -45,16 +45,16 @@ public class QMarkrsUser extends EntityPathBase<MarkrsUser> {
 
     public final StringPath userName = createString("userName");
 
-    public QMarkrsUser(String variable) {
-        super(MarkrsUser.class, forVariable(variable));
+    public QVeriEstateUser(String variable) {
+        super(VeriEstateUser.class, forVariable(variable));
     }
 
-    public QMarkrsUser(Path<? extends MarkrsUser> path) {
+    public QVeriEstateUser(Path<? extends VeriEstateUser> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QMarkrsUser(PathMetadata metadata) {
-        super(MarkrsUser.class, metadata);
+    public QVeriEstateUser(PathMetadata metadata) {
+        super(VeriEstateUser.class, metadata);
     }
 
 }

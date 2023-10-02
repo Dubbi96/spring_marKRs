@@ -62,6 +62,9 @@ dependencies {
 	// JPA 제약조건 어노테이션(예: @NotNull, @Min, @Max)을 사용하기 위한 라이브러리
 	// 참고: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// JSP 활용 implementation
+	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+	implementation "javax.servlet:jstl"
 
 	//db를 postgresql -> h2로 변경하였습니다.
 	runtimeOnly 'org.postgresql:postgresql'
@@ -105,7 +108,7 @@ dependencies {
 	//front - mustache 의존성 추가
 	//complieOnly 'org.springframework.boot:spring-boot-starter-mustache'
 	//session에서 관리
-	compileOnly 'org.springframework.session:spring-session-jdbc'
+	//compileOnly 'org.springframework.session:spring-session-jdbc'
 
 }
 
