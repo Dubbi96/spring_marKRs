@@ -107,6 +107,9 @@ dependencies {
 
 	implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
 	implementation 'org.modelmapper:modelmapper:2.4.4'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
 
 	//front - mustache 의존성 추가
 	//complieOnly 'org.springframework.boot:spring-boot-starter-mustache'

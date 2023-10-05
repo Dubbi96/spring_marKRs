@@ -22,7 +22,6 @@ public class VeriEstateUser extends BaseEntity {
     @Column(name = "E_MAIL")
     private String email;
 
-    @Lob
     @Column(name = "PROFILE_PICTURE")
     private String picture;
 
